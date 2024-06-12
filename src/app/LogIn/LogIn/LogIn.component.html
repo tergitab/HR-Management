@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="forms-container">
+        <div class="signin-signup">
+            <form class="sign-in-form" (ngSubmit)="login()">
+                <h2 class="title">Log in</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Email" [(ngModel)]="email" name="email" required />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
+                </div>
+                <input type="submit" value="Login" class="btn solid" />
+                <br />
+                <a [routerLink]="['/password-reset']">Forgot Password?</a>
+            </form>
+        </div>
+    </div>
+
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h1>Welcome</h1>
+                <p>
+                    Together we can better manage your attendance, leaves
+                    and holidays. Let's help each other to make this company better.
+                </p>
+            </div>
+            <img src="https://i.ibb.co/6HXL6q1/Privacy-policy-rafiki.png" class="image" alt="" />
+        </div>
+    </div>
+</div>

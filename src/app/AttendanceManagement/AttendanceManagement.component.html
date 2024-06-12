@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="site-wrap">
+        <nav class="site-nav">
+            <div class="name">
+                <h1>Menu</h1>
+            </div>
+            <ul>
+                <li><a [routerLink]="['/dashboard']">Home</a></li>
+                <li><a [routerLink]="['/time-management']">Time Management</a></li>
+                <li><a href="#">Attendance Management</a></li>
+                <li><a href="#">Payment Details</a></li>
+                <li><a href="#">Announcements</a></li>
+                <li><a (click)="logout()">Logout</a></li>
+            </ul>
+            <div class="note">
+                <h3>CheckIn</h3>
+                <p>Please do not forget to check in as soon as you are able.</p>
+            </div>
+        </nav>
+        <main>
+            <header>
+                <h1> Time Management</h1>
+                <nav class="nav-tabs" id="nav-tabs">
+                    <a [routerLink]="['/time-management']">Time Management</a>
+                    <a href="#">Attendance Management <span>0</span></a>
+                    <a href="#">Payment Details <span>0</span></a>
+                </nav>
+            </header>
+            <div class="site-wrap">
+                <nav class="site-nav">
+                    <div class="name">
+                        <h1>Menu</h1>
+                    </div>
+                    <ul>
+                        <li><a [routerLink]="['/dashboard']">Home</a></li>
+                        <li><a [routerLink]="['/time-management']">Time Management</a></li>
+                        <li><a [routerLink]="['/attendance-management']">Attendance Management</a></li>
+                        <li><a href="#">Payment Details</a></li>
+                        <li><a href="#">Announcements</a></li>
+                        <li><a (click)="logout()">Logout</a></li>
+                    </ul>
+                    <div class="note">
+                        <h3>CheckIn</h3>
+                        <p>Please do not forget to check in as soon as you are able.</p>
+                    </div>
+                </nav>
+                <main>
+                    <header>
+                        <h1> Time Management</h1>
+                        <nav class="nav-tabs" id="nav-tabs">
+                            <a [routerLink]="['/time-management']">Time Management</a>
+                            <a [routerLink]="['/attendance-management']">Attendance Management <span>0</span></a>
+                            <a href="#">Payment Details <span>0</span></a>
+                        </nav>
+                    </header>
+
+                    <!-- Date range search inputs -->
+                    <div class="date-range">
+                        <form (ngSubmit)="onSearch()">
+                            <label for="fromDate">From:</label>
+                            <input type="date" id="fromDate" formControlName="fromDate">
+                            <label for="toDate">To:</label>
+                            <input type="date" id="toDate" formControlName="toDate">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+
+                    <full-calendar [options]="calendarOptions"></full-calendar>
+                </main>
+            </div>
+
+        </main>
+    </div>
+</div>

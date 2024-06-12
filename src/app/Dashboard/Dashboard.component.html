@@ -1,0 +1,109 @@
+<div class="container">
+    <div class="site-wrap">
+
+        <nav class="site-nav">
+
+            <div class="name">
+                <h1>Menu</h1>
+
+            </div>
+
+            <ul>
+                <li><a [routerLink]="['/dashboard']">Home</a></li>
+                <li><a [routerLink]="['/time-management']">Time Management</a></li>
+                <li><a [routerLink]="['/attendance-management']">Attendance Management</a></li>
+                <li><a href="#" (click)="preventNavigation($event)">Payment Details</a></li>
+                <li><a href="#" (click)="preventNavigation($event)">Announcements</a></li>
+                <li><a (click)="logout()">Logout</a></li>
+            </ul>
+
+            <div class="note">
+                <h3>CheckIn</h3>
+                <p>Please do not forget to check in as soon as you are able.</p>
+            </div>
+
+        </nav>
+
+
+        @if(userRole === 'admin'){
+
+        }
+
+
+        @if(userRole === 'staff'){
+        <div>
+            <h3>Staff Content</h3>
+            <p>hello staff</p>
+        </div>
+        }
+
+        @if(userRole === 'employee'){
+
+        <main>
+
+            <header>
+
+
+                <h1 *ngIf="user?.name" class="title">{{ user?.name }}</h1>
+
+
+                <nav class="nav-tabs" id="nav-tabs">
+                    <a [routerLink]="['/time-management']">
+                        Time Management
+                    </a>
+                    <a [routerLink]="['/attendance-management']">
+                        Attendance Management
+                        <span>0</span>
+                    </a>
+                    <a href="#" (click)="preventNavigation($event)">
+                        Payment Details
+                        <span>0</span>
+                    </a>
+                </nav>
+            </header>
+
+            <div class="content-columns">
+
+                <div class="col">
+
+                    @if(file != '' ){
+                    <button style="float: right" type="button" class="btn btn-outline-primary"
+                        (click)="removeProfilePicture()">x</button>}
+                    <div class="avatar-container">
+                        <div class="image-container" @if file else placeholder [ngClass]="{'box-shadow-avatar': !!file}"
+                            [ngStyle]="{backgroundImage: 'url(' + file + ')'}">
+                        </div>
+
+                        <ng-template #placeholder>
+                            <div class="image-container avatar-placeholder">
+                            </div>
+                        </ng-template>
+
+                        <label for="avatar-input-file">
+                            <div class="icon-wrapper">
+                                <input type="file" id="avatar-input-file" accept="image/*"
+                                    (change)="onFileChange($event)" />
+                                <mat-icon class="icon" fontIcon="edit"></mat-icon>
+                            </div>
+                        </label>
+                    </div>
+                    <br />
+                    <ul class="personal-information"> <br />
+                        <li><strong>Name:</strong> {{user?.name}}</li>
+                        <br />
+                        <li><strong>Role:</strong> {{user?.role}}</li>
+                        <br />
+                        <li><strong>Contact:</strong> {{user?.email}}</li>
+                    </ul>
+                </div>
+                <div class="col">
+
+                </div>
+            </div>
+
+        </main>
+
+
+        }
+    </div>
+</div>
